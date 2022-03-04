@@ -28,6 +28,21 @@ let sliderTest = gsap.timeline({
     scrub: true,
   },
 });
+let scaleIn = gsap.timeline({
+  scrollTrigger : {
+    trigger: ".zoom",
+    start: "top bottom",
+    end: "top top",
+    scrub: true,
+  },
+});
+
+scaleIn.to(".zoom", {
+  delay: 0.5,
+  duration: 3.5,
+  scale: 2,
+  ease: "power3",
+});
 textAnimations.fromTo(
   ".section-welcome-home",
   {
@@ -66,7 +81,6 @@ ScrollTrigger.create({
 sliderTest.to(".test", {
   backgroundPosition: `50% ${100 / 2}vh`,
   ease: "slow(0.1, 0.7, false)",
-  delay: 0.2,
   duration: 3.5,
 });
 // make the right edge "stick" to the scroll bar. force3D: true improves performance
